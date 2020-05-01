@@ -30,7 +30,7 @@ class Player {
     //Méthode qui permet d'indiqué que lorsque les PV de tous les personnages sont à 0 alors le joueur a perdu
     func hasLost() -> Bool {
         for character in characters {
-            if !character.isDead() {
+            if !character.isDead() { //indique une erreur: Value of type 'Character' has no member 'isDead'
                return false
             }
         }
