@@ -36,4 +36,39 @@ class Characters {
 
 //MARK: Création des classes des différents personnages que les joueurs pourront choisir, avec leurs propres caractériques (Armes, Noms, PV)
 
+class Magician: Characters {
+    init(name: String) {
+        super.init(lifePoint: 100, name: name, weapon: MagicWeapon())
+    }
+}
+
+class Knight: Characters {
+    init(name: String) {
+        super.init(lifePoint: 110, name: name, weapon: SwordWeapon())
+    }
+}
+
+class Berseker: Characters {
+    init(name: String) {
+        super.init(lifePoint: 130, name: name, weapon: BigAx())
+    }
+}
+
+class Soldier: Characters {
+    init(name: String) {
+        super.init(lifePoint: 120, name: name, weapon: GunWeapon())
+    }
+}
+
+class Assassin: Characters {
+    init(name: String) {
+        super.init(lifePoint: 115, name: name, weapon: DoubleKnife())
+    }
+}
+
+class Archer: Characters {
+    init(name: String) {
+        super.init(lifePoint: 110, name: name, weapon: ArchWeapon())
+    }
+}
 
