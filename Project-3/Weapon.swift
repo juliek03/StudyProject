@@ -11,8 +11,8 @@ import Foundation
 //MARK: Création de la classe mère Arme. Elle permettra d'attribuer toutes ses propriétés et méthodes aux classes filles créée ci-dessous.
 
 class Weapon {
-    var damages: Int
-    var name: String
+    var damages: Int //point de dégâts de l'arme
+    var name: String //nom de l'arme 
     
     init(damages: Int, name: String) {
         self.damages = damages
