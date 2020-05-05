@@ -26,7 +26,7 @@ class Characters {
     }//le personnage attribue des points en plus à ses coéquipiers lorsque que le joueur choisi de soigner sa team
     
     func attack(character: Characters) {
-        
+        character.lifePoint -= weapon.damages
     } //le personnage attaque en utilisant son arme, celle-ci est associée à des dommages qui impactera l'adversaire, qui enlèvera des points de vie à l'adversaire.
     
     func isDead() -> Bool {
