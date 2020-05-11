@@ -71,4 +71,5 @@ class Archer: Characters {
         super.init(lifePoint: 110, name: name, weapon: ArchWeapon())
     }
 }
+}
 
