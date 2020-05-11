@@ -8,12 +8,12 @@
 
 import Foundation
 
-//MARK: Création de la classe Characters pour les Joueurs puissent choisir les personnages.
+//MARK: Creation of the Characters class for Players to choose characters.
 
 class Characters {
-    var lifePoint: Int // PV du personnages
-    var name: String // Nom du personnage choisi par le joueur
-    let weapon: Weapon //armes attribuées aux personnages
+    var lifePoint: Int // Point of life of the character
+    var name: String // Character's name chosen by the player
+    let weapon: Weapon //Weapons attributed to the characters
     
     init(lifePoint: Int, name: String, weapon: Weapon) {
         self.lifePoint = lifePoint
@@ -23,17 +23,18 @@ class Characters {
     
     func heal(character: Characters) {
         character.lifePoint += 15
-    }//le personnage attribue des points en plus à ses coéquipiers lorsque que le joueur choisi de soigner sa team
+    }//the character awards extra points to his teammates when the player chooses to take care of his team.
     
     func attack(character: Characters) {
-    } //le personnage attaque en utilisant son arme, celle-ci est associée à des dommages qui impactera l'adversaire et lui enlèvera des PV.
+        character.lifePoint -= weapon.damages
+    } //the character attacks using his weapon, which is associated with damage that will impact the opponent and take away health points.
     
     func isDead() -> Bool {
         return lifePoint <= 0
-    }//Si les PV du personnage tombe à 0 alors il est mort et ne peut plus être utilisé.
+    }//If the character's life drops to 0 then he is dead and can no longer be used.
 }
 
-//MARK: Création des classes des différents personnages que les joueurs pourront choisir, avec leurs propres caractériques (Armes, Noms, PV)
+//MARK: Creation of the classes of the different characters that the players will be able to choose, with their own characters (Weapons, Names, Life Point).
 
 class Magician: Characters {
     init(name: String) {

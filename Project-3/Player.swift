@@ -8,26 +8,26 @@
 
 import Foundation
 
-//Création de la classe Player, celle-ci permettra aux joueurs de constituer leur équipe de 3 personnages chacun et de leur attribuer des noms différents.
+//Creation of the Player class, which will allow players to create their team of 3 characters each and give them different names.
 
 class Player {
     var name: String
-    var characters: [Character] = []
+    var characters: [Characters] = []
     init(name: String) {
         self.name = name
     }
     
-    //Méthode où le Joueur peut choisir ses 3 Personnages
-    func addCharacter(character: Character) {
+    //Method where the Player can choose his 3 Characters.
+    func addCharacter(character: Characters) {
         characters.append(character)
     }
     
-    //Méthode qui permet de ne pas sélectionner plus de 3 personnages
+    //Method that allows not to select more than 3 characters.
     func isTeamFull() -> Bool {
         return characters.count == 3
     }
     
-    //Méthode qui permet d'indiqué que lorsque les PV de tous les personnages sont à 0 alors le joueur a perdu
+    //Method that allows to indicate that when the life points of all the characters are at 0 then the player has lost.
     func hasLost() -> Bool {
         for character in characters {
             if !character.isDead() {
@@ -35,5 +35,10 @@ class Player {
             }
         }
         return true
-    } //Utilisation de la boucle For pour parcourir le tableau characters afin de savoir si les personnages du joueur sont en vie, si oui il peut encore jouer, sinon il a perdu.
+    } //Using the For loop to browse the characters array to see if the player's characters are alive, if so he can still play, if not he has lost.
+    
+    func displayStats() {
+        //statistique des joueurs.
+        print(self.name)
+    }
 }

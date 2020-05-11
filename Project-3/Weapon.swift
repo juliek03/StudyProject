@@ -8,7 +8,7 @@
 
 import Foundation
 
-//MARK: Création de la classe mère Arme. Elle permettra d'attribuer toutes ses propriétés et méthodes aux classes filles créée ci-dessous.
+//MARK: Creation of the Weapon Mother Class. It will allow to assign all its properties and methods to the daughter classes created below.
 
 class Weapon {
     var damages: Int //point de dégâts de l'arme
@@ -20,7 +20,7 @@ class Weapon {
     }
 }
 
-//MARK: Création des classes filles soit les armes, chacune à sa propre classe, avec son nombre de dommages attribués et leurs noms.
+//MARK: Creation of the girl classes, i.e. the weapons, each with its own class, with the number of damages awarded and their names.
 
 class MagicWeapon: Weapon {
     init() {
