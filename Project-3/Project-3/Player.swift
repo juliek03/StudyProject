@@ -36,4 +36,9 @@ class Player {
         }
         return true
     } //Using the For loop to browse the characters array to see if the player's characters are alive, if so he can still play, if not he has lost.
+    
+    func displayStats() {
+        //statistique des joueurs.
+        print(self.name)
+    }
 }
