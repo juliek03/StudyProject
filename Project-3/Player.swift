@@ -24,7 +24,7 @@ class Player {
     
     //Method that allows not to select more than 3 characters.
     func isTeamFull() -> Bool {
-        return characters.count == 3
+        return characters.count == 1
     }
     
     //Method that allows to indicate that when the life points of all the characters are at 0 then the player has lost.
@@ -37,8 +37,17 @@ class Player {
         return true
     } //Using the For loop to browse the characters array to see if the player's characters are alive, if so he can still play, if not he has lost.
     
+    //A method of indicating a player's stats.
     func displayStats() {
-        //statistique des joueurs.
+        //statistique des joueurs: Nom du joueur, PV des perso, nombre de tour joueur, les armes utilisées.
         print(self.name)
+    }
+    
+    func displayTeam() {
+        var i = 1
+        for character in characters {
+            print("\(i). \(character.name)")
+            i += 1
+        }
     }
 }
