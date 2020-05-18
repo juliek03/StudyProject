@@ -13,8 +13,9 @@ class Game {
     var player1: Player?
     var player2: Player?
     var name: String?
+    var char: [Characters] = []
     
-    //Déroulement du jeu
+//Déroulement du jeu
     func newGame() {
         rulesGame()
         
@@ -25,18 +26,17 @@ class Game {
         displayStat()
     }
     
-    //Game rules
+//Game rules
     func rulesGame() {
         print("Welcome to Fight Warrior. Build your team and choose only 3 characters. Players play turn by turn until the loser! Let the game start!")
     }
     
-    //The player must select a character
-    func createCharacter() -> Characters {
-        let character = Magician(name: "Magic")
-        return character
+//Method where the Player can choose his 3 Characters.
+    func addCharacter(character: Characters) {
+        char.append(character)
     }
     
-    //Creation of each player's team.
+//Creation of each player's team.
     func createPlayer() -> Player { //Asking to the player to enter the character's name
         print("Enter your name")
         if let playerName = readLine() {
@@ -46,20 +46,20 @@ class Game {
         
         let player = Player(name: name!)
         
-        while !player.isTeamFull() { //The player selects a character and gives it a name.
-            player.addCharacter(character: createCharacter())
-        }
+//        while !player.isTeamFull() { //The player selects a character and gives it a name.
+//            player.addCharacter(character: createCharacter())
+//        }
         return player
     }
     
-    //le joueur doit pouvoir choisir son personnage pour attaquer l'adversaire.
+//le joueur doit pouvoir choisir son personnage pour attaquer l'adversaire.
     func attackCharacter(player: Player) -> Characters {
         print("Choose your character to fight")
         player.displayTeam()
         return player.characters[0]
     }
     
-    //Players play turn by turn until the loser.Cette méthode indique quel joueur doit jouer, il sélectionne son character, puis sélectionner le character adverse qui subira l'attaque, ainsi de suite jusqu'au perdant. Return du nombre de tour.
+//Players play turn by turn until the loser. Cette méthode indique quel joueur doit jouer, il sélectionne son character, puis sélectionner le character adverse qui subira l'attaque, ainsi de suite jusqu'au perdant. Return du nombre de tour.
     
     func playGame() {
         var currentPlayer = player1!
@@ -81,7 +81,7 @@ class Game {
         }
     }
     
-    //Methods indicating endgame statistics.
+//Methods indicating endgame statistics.
     func displayStat() {
         player1?.displayStats()
         player2?.displayStats()
