@@ -14,24 +14,13 @@ class Game {
     var player2: Player?
     
     func newGame() {
-         rulesGame()
+        rulesGame()
         
         player1 = createPlayer()
         player2 = createPlayer()
         
         playGame()
         displayStat()
-    }
-    
-    //Creation of each player's team.
-    func createPlayer() -> Player { //Asking to the player to enter the character's name
-        let playerName = "Magic"
-        let player = Player(name: playerName)
-                
-        while !player.isTeamFull() { //The player selects a character and gives it a name.
-            player.addCharacter(character: createCharacter())
-        }
-        return player
     }
     
     //Game rules
@@ -45,9 +34,24 @@ class Game {
         return character
     }
     
+    //Creation of each player's team.
+    func createPlayer() -> Player { //Asking to the player to enter the character's name
+        print("Enter your name")
+        if let playerName = readLine() {
+            print("All right \(playerName)!")
+        }
+        
+        let player = Player(name: "")
+        
+        while !player.isTeamFull() { //The player selects a character and gives it a name.
+            player.addCharacter(character: createCharacter())
+        }
+        return player
+    }
+    
     //le joueur doit pouvoir choisir son personnage pour attaquer l'adversaire.
-    func selectCharacter(player: Player) -> Characters {
-        print("Choose your character")
+    func attackCharacter(player: Player) -> Characters {
+        print("Choose your character to fight")
         player.displayTeam()
         return player.characters[0]
     }
@@ -58,8 +62,8 @@ class Game {
         var notPlaying = player2!
         
         while !player1!.hasLost() || !player2!.hasLost() {
-           let selectedCharacter = selectCharacter(player: currentPlayer)
-            let characterAttack = selectCharacter(player: notPlaying)
+           let selectedCharacter = attackCharacter(player: currentPlayer)
+            let characterAttack = attackCharacter(player: notPlaying)
             
             selectedCharacter.attack(character: characterAttack) //ajouter une print pour indiquer quel perso a été attaqué
             
