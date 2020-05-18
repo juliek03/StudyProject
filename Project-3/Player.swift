@@ -43,6 +43,7 @@ class Player {
         print(self.name)
     }
     
+    //Méthode qui permet au joueur de choisir le personnage qui va attaquer l'adversaire.
     func displayTeam() {
         var i = 1
         for character in characters {

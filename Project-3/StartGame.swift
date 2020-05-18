@@ -45,11 +45,12 @@ class Game {
         return character
     }
     
+    //le joueur doit pouvoir choisir son personnage pour attaquer l'adversaire.
     func selectCharacter(player: Player) -> Characters {
         print("Choose your character")
         player.displayTeam()
         return player.characters[0]
-    } //le joueur doit pouvoir choisir son perso pour attaquer l'adversaire.
+    }
     
     //Players play turn by turn until the loser.
     func playGame() {
@@ -70,7 +71,7 @@ class Game {
                 notPlaying = player2!
             }
         }
-    }//quel joueur de jouer, il sélectionne son character, et doit sélectionner le character adverse pour attaquer, ainsi de suite jusqu'au perdant. Return du nombre de tour.
+    }//Cette méthode indique quel joueur doit jouer, il sélectionne son character, puis sélectionner le character adverse qui subira l'attaque, ainsi de suite jusqu'au perdant. Return du nombre de tour.
     
     //Methods indicating endgame statistics.
     func displayStat() {
