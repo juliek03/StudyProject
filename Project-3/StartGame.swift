@@ -12,7 +12,9 @@ import Foundation
 class Game {
     var player1: Player?
     var player2: Player?
+    var name: String?
     
+    //Déroulement du jeu
     func newGame() {
         rulesGame()
         
@@ -38,10 +40,11 @@ class Game {
     func createPlayer() -> Player { //Asking to the player to enter the character's name
         print("Enter your name")
         if let playerName = readLine() {
-            print("All right \(playerName)!")
+            self.name = playerName
+            print("All right \(self.name ?? "")!")
         }
         
-        let player = Player(name: "")
+        let player = Player(name: name!)
         
         while !player.isTeamFull() { //The player selects a character and gives it a name.
             player.addCharacter(character: createCharacter())
@@ -56,7 +59,8 @@ class Game {
         return player.characters[0]
     }
     
-    //Players play turn by turn until the loser.
+    //Players play turn by turn until the loser.Cette méthode indique quel joueur doit jouer, il sélectionne son character, puis sélectionner le character adverse qui subira l'attaque, ainsi de suite jusqu'au perdant. Return du nombre de tour.
+    
     func playGame() {
         var currentPlayer = player1!
         var notPlaying = player2!
@@ -75,7 +79,7 @@ class Game {
                 notPlaying = player2!
             }
         }
-    }//Cette méthode indique quel joueur doit jouer, il sélectionne son character, puis sélectionner le character adverse qui subira l'attaque, ainsi de suite jusqu'au perdant. Return du nombre de tour.
+    }
     
     //Methods indicating endgame statistics.
     func displayStat() {
