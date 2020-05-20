@@ -13,15 +13,14 @@ class Game {
     var player1: Player?
     var player2: Player?
     var name: String?
-    var char: [Characters] = []
     
-//Déroulement du jeu
+//Game execution
     func newGame() {
         rulesGame()
         
         player1 = createPlayer()
         player2 = createPlayer()
-        
+    
         playGame()
         displayStat()
     }
@@ -31,13 +30,8 @@ class Game {
         print("Welcome to Fight Warrior. Build your team and choose only 3 characters. Players play turn by turn until the loser! Let the game start!")
     }
     
-//Method where the Player can choose his 3 Characters.
-    func addCharacter(character: Characters) {
-        char.append(character)
-    }
-    
 //Creation of each player's team.
-    func createPlayer() -> Player { //Asking to the player to enter the character's name
+    func createPlayer() -> Player { //Asking to the player to enter his name
         print("Enter your name")
         if let playerName = readLine() {
             self.name = playerName
@@ -46,9 +40,9 @@ class Game {
         
         let player = Player(name: name!)
         
-//        while !player.isTeamFull() { //The player selects a character and gives it a name.
-//            player.addCharacter(character: createCharacter())
-//        }
+        while !player.isTeamFull() { //The player selects a character and gives it a name.
+            player.addCharacter()
+        }
         return player
     }
     
@@ -59,7 +53,7 @@ class Game {
         return player.characters[0]
     }
     
-//Players play turn by turn until the loser. Cette méthode indique quel joueur doit jouer, il sélectionne son character, puis sélectionner le character adverse qui subira l'attaque, ainsi de suite jusqu'au perdant. Return du nombre de tour.
+//Players play turn by turn until the loser. This method indicates which player should play, he selects his character, then selects the opposing character who will suffer the attack, and so on until the loser. with a Return of the number of turns.
     
     func playGame() {
         var currentPlayer = player1!
@@ -69,7 +63,7 @@ class Game {
            let selectedCharacter = attackCharacter(player: currentPlayer)
             let characterAttack = attackCharacter(player: notPlaying)
             
-            selectedCharacter.attack(character: characterAttack) //ajouter une print pour indiquer quel perso a été attaqué
+            selectedCharacter.attack(character: characterAttack) //add a printout to indicate which character has been attacked.
             
             if currentPlayer === player1! {
                 currentPlayer = player2!

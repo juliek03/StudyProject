@@ -23,7 +23,7 @@ class Characters {
         self.weapon = weapon
         self.charaList = charaList
         
- //le switch : pour être utilisé dans la class StartGame et lister les personnages disponibles pour le choix du personnage.
+ //le switch : pour être utilisé dans la class StartGame et lister les personnages disponibles pour le choix des personnages qui constitura la team.
         switch self.charaList {
         case .Magician:
             self.lifePoint = 100
@@ -45,7 +45,7 @@ class Characters {
             self.weapon = ArchWeapon()
         }
     }
-    
+        
 //the character awards extra points to his teammates when the player chooses to take care of his team.
     func heal(character: Characters) {
         character.lifePoint += 15
@@ -99,3 +99,4 @@ class Archer: Characters {
         super.init(lifePoint: 110, name: name, weapon: ArchWeapon(), charaList: charaList)
     }
 }
+

@@ -17,6 +17,29 @@ class Player {
         self.name = name
     }
     
+ //Method where the Player can choose his 3 Characters.
+    func addCharacter() {
+            print("Choose 3 characters to build your best team !"
+            + "\n1. The Magician"
+            + "\n2. The Knight"
+            + "\n3. The Berserker"
+            + "\n4. The Soldier"
+            + "\n5. The Assassin"
+            + "\n6. The Archer")
+            
+            if let choice = readLine() {
+                switch choice {
+                case "1" : Magician.self
+                case "2" : Knight.self
+                case "3" : Berseker.self
+                case "4" : Soldier.self
+                case "5" : Assassin.self
+                case "6" : Archer.self
+                default : print("You have to choose 3 characters")
+                }
+            }
+        }
+    
 //Method that allows not to select more than 3 characters.
     func isTeamFull() -> Bool {
         return characters.count == 1
@@ -38,7 +61,7 @@ class Player {
         print(self.name)
     }
     
-//Méthode qui permet au joueur de choisir le personnage qui va attaquer l'adversaire.
+//Method that allows the player to choose the character that will attack the opponent.
     func displayTeam() {
         var i = 1
         for character in characters {
