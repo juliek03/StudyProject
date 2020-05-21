@@ -12,7 +12,6 @@ import Foundation
 class Game {
     var player1: Player?
     var player2: Player?
-    var name: String?
     
 //Game execution
     func newGame() {
@@ -27,18 +26,18 @@ class Game {
     
 //Game rules
     func rulesGame() {
-        print("Welcome to Fight Warrior. Build your team and choose only 3 characters. Players play turn by turn until the loser! Let the game start!")
+        print("Welcome to Fight Warrior 🥊! Build your team and choose only 3 characters. Players play turn by turn until the loser 👎! 👾Let the game start !👾")
     }
     
 //Creation of each player's team.
-    func createPlayer() -> Player { //Asking to the player to enter his name
+    func createPlayer() -> Player? { //Asking to the player to enter his name
         print("Enter your name")
-        if let playerName = readLine() {
-            self.name = playerName
-            print("All right \(self.name ?? "")!")
+        guard let playerName = readLine() else {
+            return nil
         }
         
-        let player = Player(name: name!)
+        print("All right \(playerName)!")
+        let player = Player(name: playerName)
         
         while !player.isTeamFull() { //The player selects a character and gives it a name.
             player.addCharacter()
@@ -46,7 +45,7 @@ class Game {
         return player
     }
     
-//le joueur doit pouvoir choisir son personnage pour attaquer l'adversaire.
+//le joueur doit pouvoir choisir son personnage pour attaquer l'adversaire. Mais pas celui qui est mort
     func attackCharacter(player: Player) -> Characters {
         print("Choose your character to fight")
         player.displayTeam()

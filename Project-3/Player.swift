@@ -19,7 +19,7 @@ class Player {
     
  //Method where the Player can choose his 3 Characters.
     func addCharacter() {
-            print("Choose 3 characters to build your best team !"
+            print("Choose 3 characters to build your best team !🦾"
             + "\n1. The Magician"
             + "\n2. The Knight"
             + "\n3. The Berserker"
@@ -27,22 +27,34 @@ class Player {
             + "\n5. The Assassin"
             + "\n6. The Archer")
             
-            if let choice = readLine() {
-                switch choice {
-                case "1" : Magician.self
-                case "2" : Knight.self
-                case "3" : Berseker.self
-                case "4" : Soldier.self
-                case "5" : Assassin.self
-                case "6" : Archer.self
-                default : print("You have to choose 3 characters")
+            if let choice = readLine() { //the player chooses his 3 characters
+                if choice == "1" || choice == "2" || choice == "3" || choice == "4" || choice == "5" || choice == "6" {
+                  print("Enter your character's name")
+                    if let name = readLine() { //the player indicates the names of his characters
+                        var character: Characters?
+                        switch choice {
+                        case "1" : character = Magician(name: name)
+                        case "2" : character = Knight(name: name)
+                        case "3" : character = Berseker(name: name)
+                        case "4" : character = Soldier(name: name)
+                        case "5" : character = Assassin(name: name)
+                        case "6" : character = Archer(name: name)
+                        default : print("You have to choose 3 characters")
+                        }
+                        self.characters.append(character!)
+                        print("🎉 Well done! Your team is now ready!")
+                    }
+                    
+                } else {
+                    print("❌ Sorry I don't understand, please try again ❌")
+                    addCharacter()
                 }
             }
         }
     
 //Method that allows not to select more than 3 characters.
     func isTeamFull() -> Bool {
-        return characters.count == 1
+        return characters.count == 3
     }
     
 //Method that allows to indicate that when the life points of all the characters are at 0 then the player has lost.
@@ -69,4 +81,8 @@ class Player {
             i += 1
         }
     }
+    
+//  func stillAlive() -> [Characters] {
+//  return array chara, permet de lister les joueurs encore vivant.
+//    }
 }

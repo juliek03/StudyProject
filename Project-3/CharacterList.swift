@@ -8,7 +8,7 @@
 
 import Foundation
 
-//Liste des personnages pour les incrémenter dans un tableau
+//List of characters to increment them in a table.
 enum CharaList {
     case Magician, Knight, Berseker, Soldier, Assassin, Archer
 }
