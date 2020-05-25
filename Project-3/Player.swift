@@ -42,7 +42,6 @@ class Player {
                         default : print("You have to choose 3 characters")
                         }
                         self.characters.append(character!)
-                        print("🎉 Well done! Your team is now ready!")
                     }
                     
                 } else {

@@ -42,6 +42,7 @@ class Game {
         while !player.isTeamFull() { //The player selects a character and gives it a name.
             player.addCharacter()
         }
+        print("🎉 Well done! Your team is now ready!")
         return player
     }
     

@@ -13,7 +13,6 @@
 		A25C5AAC245B88AB00B9BD4E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25C5AAB245B88AB00B9BD4E /* Character.swift */; };
 		A25C5AAE245B88B600B9BD4E /* Chest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25C5AAD245B88B600B9BD4E /* Chest.swift */; };
 		A25C5AB0245B88C500B9BD4E /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25C5AAF245B88C500B9BD4E /* Weapon.swift */; };
-		A2648E302472F1FB00144B64 /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2648E2F2472F1FB00144B64 /* CharacterList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,7 +35,6 @@
 		A25C5AAB245B88AB00B9BD4E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		A25C5AAD245B88B600B9BD4E /* Chest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chest.swift; sourceTree = "<group>"; };
 		A25C5AAF245B88C500B9BD4E /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
-		A2648E2F2472F1FB00144B64 /* CharacterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +73,6 @@
 				A25C5AAD245B88B600B9BD4E /* Chest.swift */,
 				A25C5AAB245B88AB00B9BD4E /* Character.swift */,
 				A25C5AAF245B88C500B9BD4E /* Weapon.swift */,
-				A2648E2F2472F1FB00144B64 /* CharacterList.swift */,
 			);
 			path = "Project-3";
 			sourceTree = "<group>";
@@ -139,7 +136,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A25C5AA8245B885E00B9BD4E /* StartGame.swift in Sources */,
-				A2648E302472F1FB00144B64 /* CharacterList.swift in Sources */,
 				A25C5AAA245B887500B9BD4E /* Player.swift in Sources */,
 				A25C5AA1245B883D00B9BD4E /* main.swift in Sources */,
 				A25C5AAC245B88AB00B9BD4E /* Character.swift in Sources */,
