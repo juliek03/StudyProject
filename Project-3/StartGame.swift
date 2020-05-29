@@ -20,8 +20,8 @@ class Game {
         player1 = createPlayer()
         player2 = createPlayer()
     
-        playGame()
-        displayStat()
+        let round = playGame()
+        displayStat(round: round)
     }
     
 //Game rules
@@ -47,8 +47,7 @@ class Game {
     }
     
 //Le joueur choisi dans sa team, le personnage qui attaque et celui qui est attaqué. Le joueur peut uniquement choisir les personnages qui sont encore en vie.
-    func attackCharacter(player: Player) -> Characters {
-        print("🤼 Choose your character to fight 🤼")
+    func chooseCharacter(player: Player) -> Characters {
         player.displayAliveTeam()
         
         if let choice = readLine() {
@@ -62,41 +61,39 @@ class Game {
             }
         }
         print("❌ Please, try again ❌")
-        return attackCharacter(player: player)
+        return chooseCharacter(player: player)
     }
   
-//Cette méthode a le même principe que la func attackCharacter, celle-ci permet de choisir le personnage a soigner dans sa propre équipe. 
-    func healCharacter(player: Player) -> Characters {
-        print("🚑 Choose the character you want to treat in your team 🚑")
-        player.displayAliveTeam()
-        
-        if let choice = readLine() {
-            if choice == "1" {
-                           return player.healMyTeam()[0]
-                       } else if (choice == "2" && player.characters.count >= 2) {
-                           return player.healMyTeam()[1]
-                       }
-                       else if (choice == "3" && player.characters.count == 3) {
-                           return player.healMyTeam()[2]
-                       }
-                   }
-                   print("❌ Please, try again ❌")
-                   return healCharacter(player: player)
-        }
+//Players play turn by turn until the loser. This method indicates which player should play, he selects his character, then selects the opposing character who will suffer the attack or choose his own character to heal, and so on until the loser. with a Return of the number of turns.
     
-    
-//Players play turn by turn until the loser. This method indicates which player should play, he selects his character, then selects the opposing character who will suffer the attack, and so on until the loser. with a Return of the number of turns.
-    
-    func playGame() {
+    func playGame() -> Int {
         var currentPlayer = player1!
         var notPlaying = player2!
+        var round = 0
         
         while !player1!.hasLost() && !player2!.hasLost() {
-            let selectedCharacter = attackCharacter(player: currentPlayer) //si attaque = joueur adverse si soigne = perso team
-            let characterAttack = attackCharacter(player: notPlaying)
-            
-            selectedCharacter.attack(character: characterAttack)
-            print("‼️ The character \(selectedCharacter.name) attacked \(characterAttack.name) ‼️")
+           print("🤼 Choose your character 🤼")
+            let selectedCharacter = chooseCharacter(player: currentPlayer) //si attaque = joueur adverse si soigne = perso team
+    
+            print("Choose 1 to attack 🥊 and 2 to heal 🚑.")
+            if let choice = readLine() {
+                switch choice {
+                case "1":
+                    print("Select a character to attack")
+                    let character = chooseCharacter(player: notPlaying)
+                    selectedCharacter.attack(character: character)
+                    print("‼️ The character \(selectedCharacter.name) attacked \(character.name) ‼️")
+                default: //considers it to be choice 2 or any other choice if the players indicate a value other than 2.
+                    print("Select a character to heal")
+                    let character = chooseCharacter(player: currentPlayer)
+                    selectedCharacter.heal(character: character)
+                    print("‼️ The character \(selectedCharacter.name) healed \(character.name) ‼️")
+                }
+            }
+            //in the game, a chest appears randomly.
+            let weapon = Chest.randomWeapon()
+            selectedCharacter.weapon = weapon
+            print("🎁 Great! You found a chest with that new weapon: \(weapon.name)!")
             
             if currentPlayer === player1! {
                 currentPlayer = player2!
@@ -105,12 +102,16 @@ class Game {
                 currentPlayer = player1!
                 notPlaying = player2!
             }
+            round += 1 //to count the number of round
         }
+       return round
     }
     
 //Methods indicating endgame statistics.
-    func displayStat() {
+    func displayStat(round: Int) {
+        print("You have completed \(round) round")
         player1?.displayStats()
         player2?.displayStats()
     }
+//    Mettre le gagnant avec un print("le gagnant est XXX")
 }

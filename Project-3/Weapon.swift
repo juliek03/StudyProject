@@ -24,13 +24,13 @@ class Weapon {
 
 class MagicWeapon: Weapon {
     init() {
-        super.init(damages: 40, name: "Magic Stick")
+        super.init(damages: 50, name: "Magic Stick")
     }
 }
 
 class SwordWeapon: Weapon {
     init() {
-        super.init(damages: 45, name: "Sword")
+        super.init(damages: 50, name: "Sword")
     }
 }
 
@@ -42,18 +42,18 @@ class BigAx: Weapon {
 
 class ArchWeapon: Weapon {
     init() {
-        super.init(damages: 35, name: "Arch")
+        super.init(damages: 50, name: "Arch")
     }
 }
 
 class GunWeapon: Weapon {
     init() {
-        super.init(damages: 35, name: "Gun")
+        super.init(damages: 50, name: "Gun")
     }
 }
 
 class DoubleKnife: Weapon {
     init() {
-        super.init(damages: 40, name: "Double Knife")
+        super.init(damages: 50, name: "Double Knife")
     }
 }

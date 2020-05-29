@@ -48,31 +48,31 @@ class Magician: Characters {
 
 class Knight: Characters {
     init(name: String) {
-        super.init(lifePoint: 110, name: name, weapon: SwordWeapon())
+        super.init(lifePoint: 100, name: name, weapon: SwordWeapon())
     }
 }
 
 class Berseker: Characters {
     init(name: String) {
-        super.init(lifePoint: 130, name: name, weapon: BigAx())
+        super.init(lifePoint: 100, name: name, weapon: BigAx())
     }
 }
 
 class Soldier: Characters {
     init(name: String) {
-        super.init(lifePoint: 120, name: name, weapon: GunWeapon())
+        super.init(lifePoint: 100, name: name, weapon: GunWeapon())
     }
 }
 
 class Assassin: Characters {
     init(name: String) {
-        super.init(lifePoint: 115, name: name, weapon: DoubleKnife())
+        super.init(lifePoint: 100, name: name, weapon: DoubleKnife())
     }
 }
 
 class Archer: Characters {
     init(name: String) {
-        super.init(lifePoint: 110, name: name, weapon: ArchWeapon())
+        super.init(lifePoint: 100, name: name, weapon: ArchWeapon())
     }
 }
 

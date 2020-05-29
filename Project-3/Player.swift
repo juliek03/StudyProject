@@ -69,14 +69,13 @@ class Player {
 //A method of indicating a player's stats. Statistique des joueurs: Nom du joueur, PV des perso, nombre de tour joueur, les armes utilisées.
     func displayStats() {
         print(self.name)
-        print(self.characters)
     }
     
 //Method that allows the player to choose the character that will attack the opponent.
     func displayAliveTeam() {
         var i = 1
         for character in self.aliveCharaters() {
-            print("\(i). \(character.name)")
+            print("\(i). \(character.name) - \(character.lifePoint)")
             i += 1
         }
     }
@@ -91,14 +90,4 @@ func aliveCharaters() -> [Characters] {
     }
     return characterAlive
  }
-
-//A method that allows players to heal their characters.
-    func healMyTeam() -> [Characters] {
-        let characterHeal: [Characters] = []
-        for character in characters {
-            character.heal(character: character)
-        }
-        return characterHeal
-    }
-
 }
