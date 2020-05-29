@@ -11,7 +11,7 @@ import Foundation
 //MARK: Creation of the Characters class for Players to choose characters.
 
 class Characters {
-    var lifePoint: Int // Point of life of the character
+    var lifePoint: Int // Health point of the character
     var name: String // Character's name chosen by the player
     var weapon: Weapon //Weapons attributed to the characters
     

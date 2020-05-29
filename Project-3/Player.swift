@@ -66,22 +66,39 @@ class Player {
         return true
     } //Using the For loop to browse the characters array to see if the player's characters are alive, if so he can still play, if not he has lost.
     
-//A method of indicating a player's stats.
+//A method of indicating a player's stats. Statistique des joueurs: Nom du joueur, PV des perso, nombre de tour joueur, les armes utilisées.
     func displayStats() {
-        //statistique des joueurs: Nom du joueur, PV des perso, nombre de tour joueur, les armes utilisées.
         print(self.name)
+        print(self.characters)
     }
     
 //Method that allows the player to choose the character that will attack the opponent.
-    func displayTeam() {
+    func displayAliveTeam() {
         var i = 1
-        for character in characters {
+        for character in self.aliveCharaters() {
             print("\(i). \(character.name)")
             i += 1
         }
     }
-    
-//  func stillAlive() -> [Characters] {
-//  return array chara, permet de lister les joueurs encore vivant.
-//    }
+
+//Method to display only living characters of the player's team.
+func aliveCharaters() -> [Characters] {
+    var characterAlive: [Characters] = []
+    for character in characters {
+        if !character.isDead() {
+            characterAlive.append(character)
+        }
+    }
+    return characterAlive
+ }
+
+//A method that allows players to heal their characters.
+    func healMyTeam() -> [Characters] {
+        let characterHeal: [Characters] = []
+        for character in characters {
+            character.heal(character: character)
+        }
+        return characterHeal
+    }
+
 }

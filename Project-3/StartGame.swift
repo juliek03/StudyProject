@@ -31,27 +31,59 @@ class Game {
     
 //Creation of each player's team.
     func createPlayer() -> Player? { //Asking to the player to enter his name
-        print("Enter your name")
+        print("Enter your name ✍️")
         guard let playerName = readLine() else {
             return nil
         }
         
-        print("All right \(playerName)!")
+        print("All right \(playerName)! 👌")
         let player = Player(name: playerName)
         
         while !player.isTeamFull() { //The player selects a character and gives it a name.
             player.addCharacter()
         }
-        print("🎉 Well done! Your team is now ready!")
+        print("🎉 Well done! Your team is now ready !")
         return player
     }
     
-//le joueur doit pouvoir choisir son personnage pour attaquer l'adversaire. Mais pas celui qui est mort
+//Le joueur choisi dans sa team, le personnage qui attaque et celui qui est attaqué. Le joueur peut uniquement choisir les personnages qui sont encore en vie.
     func attackCharacter(player: Player) -> Characters {
-        print("Choose your character to fight")
-        player.displayTeam()
-        return player.characters[0]
+        print("🤼 Choose your character to fight 🤼")
+        player.displayAliveTeam()
+        
+        if let choice = readLine() {
+            if choice == "1" {
+                return player.aliveCharaters()[0]
+            } else if (choice == "2" && player.characters.count >= 2) {
+                return player.aliveCharaters()[1]
+            }
+            else if (choice == "3" && player.characters.count == 3) {
+                return player.aliveCharaters()[2]
+            }
+        }
+        print("❌ Please, try again ❌")
+        return attackCharacter(player: player)
     }
+  
+//Cette méthode a le même principe que la func attackCharacter, celle-ci permet de choisir le personnage a soigner dans sa propre équipe. 
+    func healCharacter(player: Player) -> Characters {
+        print("🚑 Choose the character you want to treat in your team 🚑")
+        player.displayAliveTeam()
+        
+        if let choice = readLine() {
+            if choice == "1" {
+                           return player.healMyTeam()[0]
+                       } else if (choice == "2" && player.characters.count >= 2) {
+                           return player.healMyTeam()[1]
+                       }
+                       else if (choice == "3" && player.characters.count == 3) {
+                           return player.healMyTeam()[2]
+                       }
+                   }
+                   print("❌ Please, try again ❌")
+                   return healCharacter(player: player)
+        }
+    
     
 //Players play turn by turn until the loser. This method indicates which player should play, he selects his character, then selects the opposing character who will suffer the attack, and so on until the loser. with a Return of the number of turns.
     
@@ -59,11 +91,12 @@ class Game {
         var currentPlayer = player1!
         var notPlaying = player2!
         
-        while !player1!.hasLost() || !player2!.hasLost() {
-           let selectedCharacter = attackCharacter(player: currentPlayer)
+        while !player1!.hasLost() && !player2!.hasLost() {
+            let selectedCharacter = attackCharacter(player: currentPlayer) //si attaque = joueur adverse si soigne = perso team
             let characterAttack = attackCharacter(player: notPlaying)
             
-            selectedCharacter.attack(character: characterAttack) //add a printout to indicate which character has been attacked.
+            selectedCharacter.attack(character: characterAttack)
+            print("‼️ The character \(selectedCharacter.name) attacked \(characterAttack.name) ‼️")
             
             if currentPlayer === player1! {
                 currentPlayer = player2!
