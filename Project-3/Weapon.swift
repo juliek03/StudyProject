@@ -8,52 +8,54 @@
 
 import Foundation
 
-//MARK: Creation of the Weapon Mother Class. It will allow to assign all its properties and methods to the daughter classes created below.
-
+/// Creation of the Weapon Mother Class. It will allow to assign all its properties and methods to the daughter classes created below.
 class Weapon {
-    var damages: Int //weapon's damages
-    var name: String //weapon's name
+    var damages: Int
+    var name: String
     
+    /// Initialization of the properties of the Game class
+    /// - Parameters:
+    ///   - damages: weapon's damages
+    ///   - name: weapon's name
     init(damages: Int, name: String) {
         self.damages = damages
         self.name = name
     }
 }
 
-//MARK: Creation of the girl classes, i.e. the weapons, each with its own class, with the number of damages awarded and their names.
-
+/// Creation of daughter classes that inherit from the mother class Game and her properties : damages and name
 class MagicWeapon: Weapon {
     init() {
-        super.init(damages: 50, name: "Magic Stick")
+        super.init(damages: 100, name: "Magic Stick")
     }
 }
 
 class SwordWeapon: Weapon {
     init() {
-        super.init(damages: 50, name: "Sword")
+        super.init(damages: 100, name: "Sword")
     }
 }
 
 class BigAx: Weapon {
     init() {
-        super.init(damages: 50, name: "Big Ax")
+        super.init(damages: 100, name: "Big Ax")
     }
 }
 
 class ArchWeapon: Weapon {
     init() {
-        super.init(damages: 50, name: "Arch")
+        super.init(damages: 100, name: "Arch")
     }
 }
 
 class GunWeapon: Weapon {
     init() {
-        super.init(damages: 50, name: "Gun")
+        super.init(damages: 100, name: "Gun")
     }
 }
 
 class DoubleKnife: Weapon {
     init() {
-        super.init(damages: 50, name: "Double Knife")
+        super.init(damages: 100, name: "Double Knife")
     }
 }
