@@ -9,12 +9,12 @@
 import Foundation
 
 /// Creation of the Characters class for Players to choose characters.
-class Characters {
+class Character {
     var lifePoint: Int
     var name: String
     var weapon: Weapon
     
-    /// Initialization of the properties of the Characters class
+    /// Initialization of the Characters class
     /// - Parameters:
     ///   - lifePoint: Health point of the character
     ///   - name: Character's name chosen by the player
@@ -26,13 +26,13 @@ class Characters {
     }
         
 /// The character awards extra points to his teammates when the player chooses to take care of his team.
-    func heal(character: Characters) {
+    func heal(character: Character) {
         character.lifePoint += 15
     }
 
 /// The character attacks using his weapon, which is associated with damage that will impact the opponent and take away health points.
     /// - Parameter character: Characters type (class Characters)
-    func attack(character: Characters) {
+    func attack(character: Character) {
         character.lifePoint -= weapon.damages
     }
 
@@ -43,39 +43,39 @@ class Characters {
 }
 
 /// Creation of the classes of the different characters that the players will be able to choose, with their own characters (Weapons, Names, Life Point).
-class Magician: Characters {
+class Magician: Character {
     init(name: String) {
-        super.init(lifePoint: 100, name: name, weapon: MagicWeapon())
+        super.init(lifePoint: 110, name: name, weapon: MagicStick())
     }
 }
 
-class Knight: Characters {
+class Knight: Character {
     init(name: String) {
-        super.init(lifePoint: 100, name: name, weapon: SwordWeapon())
+        super.init(lifePoint: 120, name: name, weapon: Sword())
     }
 }
 
-class Berseker: Characters {
+class Berseker: Character {
     init(name: String) {
-        super.init(lifePoint: 100, name: name, weapon: BigAx())
+        super.init(lifePoint: 140, name: name, weapon: BigAx())
     }
 }
 
-class Soldier: Characters {
+class Soldier: Character {
     init(name: String) {
-        super.init(lifePoint: 100, name: name, weapon: GunWeapon())
+        super.init(lifePoint: 130, name: name, weapon: Gun())
     }
 }
 
-class Assassin: Characters {
+class Assassin: Character {
     init(name: String) {
-        super.init(lifePoint: 100, name: name, weapon: DoubleKnife())
+        super.init(lifePoint: 115, name: name, weapon: DoubleKnife())
     }
 }
 
-class Archer: Characters {
+class Archer: Character {
     init(name: String) {
-        super.init(lifePoint: 100, name: name, weapon: ArchWeapon())
+        super.init(lifePoint: 100, name: name, weapon: Arch())
     }
 }
 

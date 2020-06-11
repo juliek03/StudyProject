@@ -21,7 +21,7 @@ class Game {
         player2 = createPlayer()
     
         let round = playGame()
-        displayStat(round: round)
+        statistic(round: round)
     }
     
 /// Game rules. Shows players how the game is played.
@@ -47,7 +47,7 @@ class Game {
     }
     
 /// The player chosen in his team, the character who attacks and the one who is attacked. He can only choose the characters that are still alive.
-    func chooseCharacter(player: Player) -> Characters {
+    func chooseCharacter(player: Player) -> Character {
         player.displayAliveTeam()
         
         if let choice = readLine() {
@@ -109,7 +109,7 @@ class Game {
     }
     
 /// Methods indicating endgame statistics.
-    func displayStat(round: Int) {
+    func statistic(round: Int) {
         print("You have completed \(round) round !")
         player1?.displayStats()
         player2?.displayStats()

@@ -13,7 +13,7 @@ class Weapon {
     var damages: Int
     var name: String
     
-    /// Initialization of the properties of the Game class
+    /// Initialization of the Game class
     /// - Parameters:
     ///   - damages: weapon's damages
     ///   - name: weapon's name
@@ -24,38 +24,38 @@ class Weapon {
 }
 
 /// Creation of daughter classes that inherit from the mother class Game and her properties : damages and name
-class MagicWeapon: Weapon {
+class MagicStick: Weapon {
     init() {
-        super.init(damages: 100, name: "Magic Stick")
+        super.init(damages: 40, name: "Magic Stick")
     }
 }
 
-class SwordWeapon: Weapon {
+class Sword: Weapon {
     init() {
-        super.init(damages: 100, name: "Sword")
+        super.init(damages: 45, name: "Sword")
     }
 }
 
 class BigAx: Weapon {
     init() {
-        super.init(damages: 100, name: "Big Ax")
+        super.init(damages: 50, name: "Big Ax")
     }
 }
 
-class ArchWeapon: Weapon {
+class Arch: Weapon {
     init() {
-        super.init(damages: 100, name: "Arch")
+        super.init(damages: 30, name: "Arch")
     }
 }
 
-class GunWeapon: Weapon {
+class Gun: Weapon {
     init() {
-        super.init(damages: 100, name: "Gun")
+        super.init(damages: 40, name: "Gun")
     }
 }
 
 class DoubleKnife: Weapon {
     init() {
-        super.init(damages: 100, name: "Double Knife")
+        super.init(damages: 35, name: "Double Knife")
     }
 }

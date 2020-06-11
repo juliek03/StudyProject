@@ -11,7 +11,9 @@ import Foundation
 /// Creation of the Player class, which will allow players to create their team of 3 characters each and give them different names.
 class Player {
     var name: String
-    var characters: [Characters] = []
+    var characters: [Character] = [] /// Character's table 
+    /// Initialization of the Player class.
+    /// - Parameter name: player's name
     init(name: String) {
         self.name = name
     }
@@ -30,7 +32,7 @@ class Player {
                 if choice == "1" || choice == "2" || choice == "3" || choice == "4" || choice == "5" || choice == "6" {
                   print("Enter your character's name")
                     if let name = readLine() { /// line 34 : The player indicates the names of his characters
-                        var character: Characters?
+                        var character: Character?
                         switch choice {
                         case "1" : character = Magician(name: name)
                         case "2" : character = Knight(name: name)
@@ -85,8 +87,8 @@ class Player {
     }
 
 /// Method to display only living characters of the player's team.
-func aliveCharaters() -> [Characters] {
-    var characterAlive: [Characters] = []
+func aliveCharaters() -> [Character] {
+    var characterAlive: [Character] = []
     for character in characters {
         if !character.isDead() {
             characterAlive.append(character)
