@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+/// Game execution
 let game = Game()
 game.newGame()
 
