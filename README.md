@@ -1,3 +1,5 @@
+‼️ UPDATE : the complete project is on branch1 ‼️
+
 Project 3 / Create a video game
 
 This is a study project which aims to acquire and master the basics of object-oriented programming.
