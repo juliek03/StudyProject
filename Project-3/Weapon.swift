@@ -24,13 +24,13 @@ class Weapon {
 }
 
 /// Creation of daughter classes that inherit from the mother class Game and her properties : damages and name
-class MagicStick: Weapon {
+final class MagicStick: Weapon { //final : empêche à magicstick d'être la classe mère d'une autre classe
     init() {
         super.init(damages: 40, name: "Magic Stick")
     }
 }
 
-class Sword: Weapon {
+final class Sword: Weapon {
     init() {
         super.init(damages: 45, name: "Sword")
     }

@@ -15,7 +15,7 @@ class Chest {
     
 /// func randomWeapon( ) : this method returns the Weapon class, to introduce a random weapon into the game.
     static func randomWeapon() -> Weapon {
-        let randomChest = Int(arc4random_uniform(UInt32(getWeapon.count)))
+        let randomChest = Int.random(in: 0...getWeapon.count)
         let weapon = getWeapon[randomChest]
         return weapon
     }

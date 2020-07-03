@@ -10,7 +10,7 @@ import Foundation
 
 /// Creation of the Player class, which will allow players to create their team of 3 characters each and give them different names.
 class Player {
-    var name: String
+    let name: String
     var characters: [Character] = [] /// Character's table 
     /// Initialization of the Player class.
     /// - Parameter name: player's name
@@ -42,9 +42,9 @@ class Player {
                         case "6" : character = Archer(name: name)
                         default : print("You have to choose 3 characters")
                         }
-                        self.characters.append(character!) /// to each selected player, he is added to his team.
+                        characters.append(character!) /// to each selected player, he is added to his team.
                     }
-                    
+                  ///si le player entre un nom de personnage il ne peut pas mettre le mm nom. Effectuer un tableau à part et dés que le joueur entre le nom il s'ajoute au tableau. Il faut aller vérifier dans ce tableau pour savoir si le nom existe déjà.
                 } else {
                     /// If the player makes a mistake, it will be asked again to choose his character.
                     print("❌ Please try again ❌")

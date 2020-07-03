@@ -11,7 +11,7 @@ import Foundation
 /// Creation of the Characters class for Players to choose characters.
 class Character {
     var lifePoint: Int
-    var name: String
+    let name: String
     var weapon: Weapon
     
     /// Initialization of the Characters class
