@@ -115,9 +115,10 @@ class Game {
         player2?.displayStats()
         
         if player1!.hasLost() { /// send back a printout to find out which of the two players has won.
-            print("🎊 And the winner is Player 2 🎊")
+            print("🎊 And the winner is  🎊")
+            /// ajout du nom du joueur gagnant
         } else {
-            print("🎊 And the winner is Player 1 🎊")
+            print("🎊 And the winner is  🎊")
         }
     }
 }
